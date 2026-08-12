@@ -1,0 +1,228 @@
+/* Elise Antoine — personal site
+   Minimalist layout: black on white, generous whitespace, Lato. */
+
+:root {
+  --text: #111111;
+  --muted: #6b6b6b;
+  --border: #dddddd;
+  --max-width: 760px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-color: var(--text);
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.site-title {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.site-title:hover {
+  text-decoration: none;
+}
+
+nav.site-nav {
+  display: flex;
+  gap: 22px;
+  padding-top: 6px;
+}
+
+nav.site-nav a {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: var(--muted);
+  padding-bottom: 4px;
+}
+
+nav.site-nav a:hover {
+  color: var(--text);
+}
+
+nav.site-nav a[aria-current="page"] {
+  color: var(--text);
+  border-bottom: 1px solid var(--text);
+}
+
+.tagline {
+  margin: 14px 0 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text);
+  max-width: 420px;
+}
+
+/* Main content */
+
+main {
+  padding: 48px 0 80px;
+}
+
+main h1 {
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin: 0 0 36px;
+}
+
+main h2 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 44px 0 16px;
+  color: var(--text);
+}
+
+main h2:first-of-type {
+  margin-top: 0;
+}
+
+main p {
+  margin: 0 0 18px;
+}
+
+.bio-photo {
+  float: left;
+  width: 220px;
+  margin: 0 28px 16px 0;
+}
+
+.bio-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.bio-clear {
+  clear: both;
+}
+
+ul.plain-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+ul.plain-list li {
+  margin-bottom: 14px;
+}
+
+ul.pub-list {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+ul.pub-list li {
+  margin-bottom: 20px;
+}
+
+.note {
+  display: block;
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+details.abstract {
+  margin-bottom: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+details.abstract summary {
+  cursor: pointer;
+  font-weight: 400;
+  color: var(--text);
+}
+
+details.abstract summary:hover {
+  color: var(--muted);
+}
+
+details.abstract p {
+  margin-top: 14px;
+  font-size: 16px;
+  color: #333333;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.9;
+}
+
+footer.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0 48px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  header.site-header {
+    padding-top: 32px;
+  }
+
+  nav.site-nav {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .bio-photo {
+    float: none;
+    width: 180px;
+    margin: 0 0 20px;
+  }
+}
