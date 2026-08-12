@@ -1,11 +1,15 @@
 /* Elise Antoine — personal site
-   Minimalist layout: black on white, generous whitespace, Lato. */
+   Minimalist layout: black on white, generous whitespace, Lato,
+   one restrained accent color. */
 
 :root {
-  --text: #111111;
+  --bg: #faf9f6;
+  --text: #16181c;
   --muted: #6b6b6b;
-  --border: #dddddd;
-  --max-width: 760px;
+  --border: #e2e2e2;
+  --accent: #1d3a5f;
+  --accent-soft: #1d3a5f33;
+  --max-width: 880px;
 }
 
 * {
@@ -18,10 +22,10 @@ html {
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: var(--bg);
   color: var(--text);
   font-family: "Lato", Arial, Helvetica, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 17px;
   line-height: 1.7;
 }
@@ -29,12 +33,15 @@ body {
 a {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-color: var(--border);
+  text-decoration-color: var(--accent-soft);
+  text-decoration-thickness: 1px;
   text-underline-offset: 2px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 a:hover {
-  text-decoration-color: var(--text);
+  color: var(--accent);
+  text-decoration-color: var(--accent);
 }
 
 .wrap {
@@ -63,40 +70,43 @@ header.site-header {
   font-weight: 400;
   letter-spacing: 2px;
   text-decoration: none;
-  color: var(--text);
+  color: var(--accent);
 }
 
 .site-title:hover {
   text-decoration: none;
+  color: var(--accent);
 }
 
 nav.site-nav {
   display: flex;
-  gap: 22px;
-  padding-top: 6px;
+  gap: 24px;
+  padding-top: 8px;
 }
 
 nav.site-nav a {
-  font-size: 13px;
-  letter-spacing: 0.5px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   text-decoration: none;
-  color: var(--muted);
+  color: #3a3a3a;
   padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
 }
 
 nav.site-nav a:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 nav.site-nav a[aria-current="page"] {
-  color: var(--text);
-  border-bottom: 1px solid var(--text);
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
 }
 
 .tagline {
   margin: 14px 0 0;
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text);
   max-width: 420px;
 }
@@ -104,25 +114,28 @@ nav.site-nav a[aria-current="page"] {
 /* Main content */
 
 main {
-  padding: 48px 0 80px;
+  padding: 52px 0 80px;
 }
 
 main h1 {
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--muted);
+  color: var(--accent);
   margin: 0 0 36px;
 }
 
 main h2 {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 15px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin: 44px 0 16px;
+  letter-spacing: 1.2px;
+  margin: 48px 0 18px;
+  padding-bottom: 8px;
   color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
 }
 
 main h2:first-of-type {
@@ -149,6 +162,40 @@ main p {
   clear: both;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.award-figure {
+  float: right;
+  width: 160px;
+  margin: 4px 0 12px 20px;
+}
+
+.award-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+}
+
+.project-figure {
+  margin: 8px 0 28px;
+}
+
+.project-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+}
+
 ul.plain-list {
   list-style: none;
   margin: 0 0 8px;
@@ -167,12 +214,20 @@ ul.pub-list {
 
 ul.pub-list li {
   margin-bottom: 20px;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+}
+
+ul.pub-list li::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .note {
   display: block;
   font-size: 15px;
-  color: var(--muted);
+  color: var(--accent);
   margin-top: 2px;
 }
 
@@ -184,12 +239,15 @@ details.abstract {
 
 details.abstract summary {
   cursor: pointer;
-  font-weight: 400;
-  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
 }
 
 details.abstract summary:hover {
-  color: var(--muted);
+  color: var(--text);
 }
 
 details.abstract p {
@@ -224,5 +282,11 @@ footer.site-footer {
     float: none;
     width: 180px;
     margin: 0 0 20px;
+  }
+
+  .award-figure {
+    float: none;
+    width: 200px;
+    margin: 0 0 16px;
   }
 }
